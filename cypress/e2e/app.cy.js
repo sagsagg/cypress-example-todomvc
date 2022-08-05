@@ -72,7 +72,7 @@ describe('TodoMVC - React', function () {
       // http://on.cypress.io/get
       cy.get('.todo-list li').should('not.exist')
       cy.get('.main').should('not.exist')
-      cy.get('.footer').should('exist')
+      cy.get('.footer').should('not.exist')
     })
   })
 })
