@@ -2,7 +2,7 @@ name: End-to-end tests
 on: [push]
 jobs:
   cypress-run:
-    runs-on: windows-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -21,6 +21,6 @@ jobs:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'engineering-ops'
           message-text: 'Cypress tests failed! They have been placed in this thread, good luck.'
-          workdir: 'cypress'
+          workdir: 'test/cypress'
 
       
