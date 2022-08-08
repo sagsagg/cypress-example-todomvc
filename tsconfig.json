@@ -8,6 +8,6 @@
     ]
   },
   "include": [
-    "cypress/**/*.js"
+    "test/cypress/**/*.js"
   ]
 }
