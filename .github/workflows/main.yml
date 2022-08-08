@@ -18,8 +18,9 @@ jobs:
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
         if: failure()
         with:
-          token: ${{ secrets.SLACK_TOKEN }}
+          token: ${{ secrets.CYPRESS_E2E_APP_SLACK_KEY }}
           channels: 'engineering-ops'
           message-text: 'Cypress tests failed! They have been placed in this thread, good luck.'
+          workdir: test/cypress
 
       
