@@ -21,6 +21,6 @@ jobs:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'engineering-ops'
           message-text: 'Cypress tests failed! They have been placed in this thread, good luck.'
-          workdir: '/test/cypress'
+          workdir: 'test/'
 
       
