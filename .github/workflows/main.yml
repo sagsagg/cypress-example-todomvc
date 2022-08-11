@@ -40,7 +40,6 @@ jobs:
           slackbotid: ${{ secrets.SLACKBOTID }}
           slackbottoken: ${{ secrets.SLACK_TOKEN }}
           slackchannel: '${{ secrets.SLACKCHANNEL }}'
-          junitxml_filepath: junitreport.xml
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
         if: failure()
