@@ -39,7 +39,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'engineering-ops'
-          message-text: '@${{ env.GIT_COMMIT_COMMITTER_EMAIL }} Please check!!'
+          message-text: 'Please check!! :pray:'
           workdir: 'test/cypress'
 
       
