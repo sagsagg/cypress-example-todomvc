@@ -6,14 +6,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Run E2E tests
-        uses: cypress-io/github-action@v4
-        with:
-          start: "npm run start:ci"
-          wait-on: "http://localhost:8888"
-          # let's see if the Test Runner handles url in the config
-          # https://github.com/cypress-io/cypress/issues/5466
-          config: baseUrl=http://localhost:8888
       - name: 'Git Commit Data'
         uses: rlespinasse/git-commit-data-action@1.3.0
       - name: 'Print git commit data'
@@ -33,6 +25,14 @@ jobs:
           echo " - ${{ env.GIT_COMMIT_MESSAGE_SUBJECT }}"
           echo " - ${{ env.GIT_COMMIT_MESSAGE_SUBJECT_SANITIZED }}"
           echo " - ${{ env.GIT_COMMIT_MESSAGE_BODY }}"
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v4
+        with:
+          start: "npm run start:ci"
+          wait-on: "http://localhost:8888"
+          # let's see if the Test Runner handles url in the config
+          # https://github.com/cypress-io/cypress/issues/5466
+          config: baseUrl=http://localhost:8888
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
         if: failure()
