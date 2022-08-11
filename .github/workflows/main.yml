@@ -33,6 +33,12 @@ jobs:
           # let's see if the Test Runner handles url in the config
           # https://github.com/cypress-io/cypress/issues/5466
           config: baseUrl=http://localhost:8888
+      - name: Slack notification with cypress-slack-reporter
+        if: failure()
+        env: 
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider github
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
         if: failure()
@@ -41,11 +47,5 @@ jobs:
           channels: 'engineering-ops'
           message-text: 'Please check!! :pray:'
           workdir: 'test/cypress'
-      - name: Slack notification with cypress-slack-reporter
-        if: failure()
-        env: 
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: |
-          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider github
 
       

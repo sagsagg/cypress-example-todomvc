@@ -62,6 +62,16 @@ describe('TodoMVC - React', function () {
     cy.get('.todo-list li').should('have.length', 3)
   })
 
+  context('When page is initially opened', function () {
+    it('should focus on the todo input field', function () {
+      // get the currently focused element and assert
+      // that it has class='new-todo'
+      //
+      // http://on.cypress.io/focused
+      cy.focused().should('have.class', 'new-todo')
+    })
+  })
+
   context('No Todos', function () {
     it('should hide #main and #footer', function () {
       // Unlike the TodoMVC tests, we don't need to create
