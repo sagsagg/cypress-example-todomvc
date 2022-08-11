@@ -46,6 +46,6 @@ jobs:
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider none
+          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider github
 
       
