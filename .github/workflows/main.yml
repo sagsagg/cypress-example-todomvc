@@ -41,5 +41,11 @@ jobs:
           channels: 'engineering-ops'
           message-text: 'Please check!! :pray:'
           workdir: 'test/cypress'
+      - name: Slack notification with cypress-slack-reporter
+        if: failure()
+        env: 
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider none
 
       
