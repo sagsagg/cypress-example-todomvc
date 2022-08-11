@@ -39,7 +39,7 @@ jobs:
         with:
           token: ${{ secrets.SLACK_TOKEN }}
           channels: 'engineering-ops'
-          message-text: '@Sang Nguyen Please check!!'
+          message-text: '@${{ env.GIT_COMMIT_COMMITTER_EMAIL }} Please check!!'
           workdir: 'test/cypress'
 
       
