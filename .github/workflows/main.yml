@@ -14,9 +14,9 @@ jobs:
           # let's see if the Test Runner handles url in the config
           # https://github.com/cypress-io/cypress/issues/5466
           config: baseUrl=http://localhost:8888
-      - name: Git Commit Data
+      - name: 'Git Commit Data'
         uses: rlespinasse/git-commit-data-action@1.3.0
-      - name: Print git commit data
+      - name: 'Print git commit data'
         run: |
           echo "Get commit info"
           echo " - ${{ env.GIT_COMMIT_SHA }}"
