@@ -34,7 +34,6 @@ jobs:
           # https://github.com/cypress-io/cypress/issues/5466
           config: baseUrl=http://localhost:8888
       - name: Slack notification with cypress-slack-reporter
-        if: failure()
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
