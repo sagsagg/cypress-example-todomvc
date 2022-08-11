@@ -25,6 +25,7 @@
     "e2e": "cypress run"
   },
   "dependencies": {
+    "cypress-multi-reporters": "1.6.1",
     "director": "1.2.8",
     "http-server": "0.13.0",
     "react": "0.13.3",

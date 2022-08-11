@@ -37,7 +37,7 @@ jobs:
         env: 
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          npx cypress-slack-reporter --report-dir mochawesome-report --ci-provider github
+          npx cypress-slack-reporter --report-dir cypress-multi-reporters --ci-provider github
       - name: 'Upload screenshots and videos to Slack'
         uses: trymbill/cypress-slack-video-upload-action@v1.3.0
         if: failure()
